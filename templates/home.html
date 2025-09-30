@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Spline+Sans%3Awght%40400%3B500%3B700" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+    body {
+      min-height: max(884px, 100dvh);
+      font-family: "Noto Sans", sans-serif;
+    }
+    :root {
+      --brand-blue: #0A6CFF;
+      --light-gray: #F0F2F5;
+      --dark-gray: #1E293B;
+      --text-primary: #111827;
+      --text-secondary: #6B7280;
+      --primary-color: #3B82F6;
+      --background-light: #FFFFFF;
+      --text-main: #1F2937;
+      --text-light: #6B7280;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[var(--background-light)]">
+<div class="relative flex size-full min-h-screen flex-col justify-between group/design-root overflow-x-hidden">
+<div class="flex-grow">
+<header class="sticky top-0 z-10 bg-white/90 backdrop-blur-sm">
+<div class="flex items-center p-4 justify-between border-b border-gray-200">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[var(--primary-color)] text-3xl">verified_user</span>
+<h2 class="text-[var(--text-main)] text-xl font-bold leading-tight tracking-[-0.015em]">AuthenCore</h2>
+</div>
+<a class="text-[var(--primary-color)] text-base font-bold leading-normal tracking-[0.015em] shrink-0 hover:text-blue-700 transition-colors" href="{{ url_for('login') }}">Login/Signup</a>
+</div>
+</header>
+<main>
+<div class="p-4 pt-8 text-center">
+<h1 class="text-[var(--text-main)] text-4xl font-bold leading-tight tracking-tight md:text-5xl">Verify Certificates Instantly</h1>
+<p class="text-[var(--text-light)] text-lg font-normal leading-normal mt-2">Trusted. Secured. Reliable.</p>
+</div>
+<div class="p-4 space-y-6">
+<div class="flex flex-col items-stretch justify-start rounded-2xl bg-gray-50 border border-gray-200 overflow-hidden">
+<div class="p-6">
+<h3 class="text-[var(--text-main)] text-xl font-bold leading-tight tracking-[-0.015em]">Scan / Upload Certificate</h3>
+<p class="text-[var(--text-light)] text-base font-normal leading-normal mt-1">OCR, QR Scan, Upload PDF/Image</p>
+<button onclick="window.location.href='{{ url_for('login') }}'" class="w-full mt-4 flex items-center justify-center rounded-full h-12 px-5 bg-[var(--primary-color)] text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-blue-700 transition-colors gap-2">
+<span class="material-symbols-outlined">qr_code_scanner</span>
+<span>Scan or Upload</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col items-stretch justify-start rounded-2xl bg-gray-50 border border-gray-200 overflow-hidden">
+<div class="p-6 space-y-4">
+<h3 class="text-[var(--text-main)] text-xl font-bold leading-tight tracking-[-0.015em]">Manual Verification</h3>
+<div>
+<label class="text-[var(--text-light)] text-sm font-medium" for="cert-no">Certificate No.</label>
+<input class="w-full bg-white border border-gray-300 text-gray-900 rounded-lg p-2 mt-1 focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)]" id="cert-no" type="text"/>
+</div>
+<div>
+<label class="text-[var(--text-light)] text-sm font-medium" for="id-no">ID No.</label>
+<input class="w-full bg-white border border-gray-300 text-gray-900 rounded-lg p-2 mt-1 focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)]" id="id-no" type="text"/>
+</div>
+<div>
+<label class="text-[var(--text-light)] text-sm font-medium" for="full-name">Full Name</label>
+<input class="w-full bg-white border border-gray-300 text-gray-900 rounded-lg p-2 mt-1 focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)]" id="full-name" type="text"/>
+</div>
+<button onclick="window.location.href='{{ url_for('login') }}'" class="w-full flex items-center justify-center rounded-full h-12 px-5 bg-[var(--primary-color)] text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-blue-700 transition-colors gap-2">
+<span class="material-symbols-outlined">check_circle</span>
+<span>Verify Now</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<footer class="sticky bottom-0 bg-white/90 backdrop-blur-sm border-t border-gray-200">
+<nav class="flex justify-around items-center px-4 py-2">
+<a class="flex flex-col items-center justify-center gap-1 text-[var(--primary-color)]" href="{{ url_for('home') }}">
+<span class="material-symbols-outlined text-3xl">home</span>
+<p class="text-xs font-medium leading-normal">Home</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-[var(--text-light)] hover:text-[var(--primary-color)] transition-colors" href="{{ url_for('login') }}">
+<span class="material-symbols-outlined text-3xl">qr_code_scanner</span>
+<p class="text-xs font-medium leading-normal">Verify</p>
+</a>
+<a class="flex flex-col items-center justify-center gap-1 text-[var(--text-light)] hover:text-[var(--primary-color)] transition-colors" href="{{ url_for('login') }}">
+<span class="material-symbols-outlined text-3xl">person</span>
+<p class="text-xs font-medium leading-normal">Profile</p>
+</a>
+</nav>
+<div class="h-safe-area-bottom bg-white"></div>
+</footer>
+</div>
+</body></html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Certificate Issued</title>
+    <link rel="stylesheet" href="https://cdn.tailwindcss.com">
+</head>
+<body class="bg-gray-50 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-xl shadow-lg text-center max-w-md">
+        <h2 class="text-xl font-bold text-green-600">✅ Certificate Issued!</h2>
+        <p class="mt-2 text-gray-700">
+            Certificate <strong>{{ cert_id }}</strong> issued successfully for <strong>{{ student_name }}</strong>.
+        </p>
+        <div class="mt-4">
+            <img src="{{ qr_code }}" alt="QR Code" class="mx-auto w-40 h-40">
+            <p class="text-sm text-gray-500 mt-2">Scan this QR to verify</p>
+        </div>
+        <a href="{{ url_for('admin_dashboard') }}" class="mt-6 inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">Back to Dashboard</a>
+    </div>
+</body>
+</html>

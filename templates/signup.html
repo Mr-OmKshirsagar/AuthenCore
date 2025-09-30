@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AuthenCore - Sign Up</title>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&family=Inter:wght@400;500;600;700&family=Spline+Sans:wght@400;500;700" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+    :root {
+        --primary-color: #3B82F6;
+      --primary-500: #0ea5e9;
+      --primary-600: #0284c7;
+    }
+    body {
+        font-family: 'Inter', 'Spline Sans', sans-serif;
+    }
+</style>
+</head>
+<body class="bg-white text-gray-900">
+<div class="flex min-h-screen flex-col">
+<header class="sticky top-0 z-10 bg-white/90 backdrop-blur-sm">
+<div class="flex items-center p-4 justify-between border-b border-gray-200">
+    <div class="flex items-center gap-2">
+    <a href="/login" class="p-2">
+    <span class="material-symbols-outlined text-2xl text-gray-500">arrow_back_ios_new</span>
+</a>
+<span class="material-symbols-outlined text-[var(--primary-color)] text-3xl">verified_user</span>
+<h2 class="text-[var(--text-main)] text-xl font-bold leading-tight tracking-[-0.015em]">AuthenCore - Login</h2>
+</div>
+</div>
+</header>
+
+<main class="flex-1 px-6 py-8">
+  <form class="space-y-4" method="POST" action="/signup">
+    <div>
+      <label for="full-name" class="block text-sm font-medium text-gray-500 mb-1">Full Name</label>
+      <input name="full-name" id="full-name" type="text" required
+        class="form-input w-full rounded-lg border-gray-200 h-12 px-4" placeholder="Enter your full name"/>
+    </div>
+    <div>
+      <label for="mobile-no" class="block text-sm font-medium text-gray-500 mb-1">Mobile No.</label>
+      <input name="mobile-no" id="mobile-no" type="tel"
+        class="form-input w-full rounded-lg border-gray-200 h-12 px-4" placeholder="Enter your mobile number"/>
+    </div>
+    <div>
+      <label for="email" class="block text-sm font-medium text-gray-500 mb-1">Email ID</label>
+      <input name="email" id="email" type="email"
+        class="form-input w-full rounded-lg border-gray-200 h-12 px-4" placeholder="Enter your email ID"/>
+    </div>
+    <div>
+      <label for="id-no" class="block text-sm font-medium text-gray-500 mb-1">ID No.</label>
+      <input name="id-no" id="id-no" type="text"
+        class="form-input w-full rounded-lg border-gray-200 h-12 px-4" placeholder="Auto or Manual"/>
+    </div>
+    <div>
+      <label for="password" class="block text-sm font-medium text-gray-500 mb-1">Password</label>
+      <input name="password" id="password" type="password" required
+        class="form-input w-full rounded-lg border-gray-200 h-12 px-4" placeholder="Enter your password"/>
+    </div>
+    <div>
+      <label for="confirm-password" class="block text-sm font-medium text-gray-500 mb-1">Confirm Password</label>
+      <input name="confirm-password" id="confirm-password" type="password" required
+        class="form-input w-full rounded-lg border-gray-200 h-12 px-4" placeholder="Confirm your password"/>
+    </div>
+    <div>
+      <label for="institution" class="block text-sm font-medium text-gray-500 mb-1">Institution/College (Optional)</label>
+      <input name="institution" id="institution" type="text"
+        class="form-input w-full rounded-lg border-gray-200 h-12 px-4" placeholder="Enter your institution/college"/>
+    </div>
+    <div class="pt-6">
+      <button type="submit"
+        class="w-full rounded-full bg-blue-600 text-white py-3 text-base font-semibold tracking-wide hover:bg-blue-700 transition-colors">
+        Create Account
+      </button>
+    </div>
+  </form>
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B600%3B700&amp;family=Spline+Sans%3Awght%40400%3B500%3B700" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<title>AuthenCore - Login</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        :root {
+            --primary-color: #3B82F6;--background-color: #F9FAFB;--surface-color: #FFFFFF;
+            --text-primary: #1F2937;--text-secondary: #6B7280;}
+        body {
+            font-family: "Inter", "Spline Sans", sans-serif;
+        }
+        .tab-active {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+        }
+        .tab-inactive {
+            color: var(--text-secondary);
+            border-bottom: 3px solid transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-gray-50 text-gray-900">
+<div class="flex min-h-screen flex-col">
+<header class="sticky top-0 z-10 bg-white/90 backdrop-blur-sm">
+<div class="flex items-center p-4 justify-between border-b border-gray-200">
+    <div class="flex items-center gap-2">
+    <a href="/home.html" class="p-2">
+    <span class="material-symbols-outlined text-2xl text-gray-500">arrow_back_ios_new</span>
+</a>
+<span class="material-symbols-outlined text-[var(--primary-color)] text-3xl">verified_user</span>
+<h2 class="text-[var(--text-main)] text-xl font-bold leading-tight tracking-[-0.015em]">AuthenCore - Login</h2>
+</div>
+</div>
+</header>
+
+<main class="flex-grow px-6 py-8">
+<div class="mb-8">
+<div class="flex border-b border-gray-200">
+<button class="flex-1 py-3 text-center font-medium text-base tracking-wide transition-colors duration-300 tab-active" id="user-tab" onclick="showTab('user')">User</button>
+<button class="flex-1 py-3 text-center font-medium text-base tracking-wide transition-colors duration-300 tab-inactive" id="admin-tab" onclick="showTab('admin')">Admin</button>
+</div>
+</div>
+
+  <!-- User Login -->
+  <form id="user-login" method="POST" action="/login" class="space-y-6">
+    <input type="hidden" name="role" value="user"/>
+    <div>
+      <input name="username" type="text" placeholder="Mobile No. / ID No." required
+        class="w-full rounded-lg border-gray-300 h-12 px-4"/>
+    </div>
+    <div>
+      <input name="password" type="password" placeholder="Password" required
+        class="w-full rounded-lg border-gray-300 h-12 px-4"/>
+    </div>
+    <button type="submit" class="w-full mt-6 rounded-lg h-12 bg-blue-600 text-white">Login as User</button>
+  </form>
+
+  <!-- Admin Login -->
+  <form id="admin-login" method="POST" action="/login" class="space-y-6 hidden">
+    <input type="hidden" name="role" value="admin"/>
+    <div>
+      <input name="username" type="text" placeholder="Admin ID No." required
+        class="w-full rounded-lg border-gray-300 h-12 px-4"/>
+    </div>
+    <div>
+      <input name="password" type="password" placeholder="Password" required
+        class="w-full rounded-lg border-gray-300 h-12 px-4"/>
+    </div>
+    <button type="submit" class="w-full mt-6 rounded-lg h-12 bg-blue-600 text-white">Login as Admin</button>
+  </form>
+
+  <p class="text-center mt-6 text-sm">
+    Don’t have an account? <a href="/signup" class="text-blue-600">Sign Up</a>
+  </p>
+</main>
+</div>
+
+<script>
+  function showTab(tabName) {
+            const userLogin = document.getElementById('user-login');
+            const adminLogin = document.getElementById('admin-login');
+            const userTab = document.getElementById('user-tab');
+            const adminTab = document.getElementById('admin-tab');
+            if (tabName === 'user') {
+                userLogin.classList.remove('hidden');
+                adminLogin.classList.add('hidden');
+                userTab.classList.add('tab-active');
+                userTab.classList.remove('tab-inactive');
+                adminTab.classList.add('tab-inactive');
+                adminTab.classList.remove('tab-active');
+            } else {
+                userLogin.classList.add('hidden');
+                adminLogin.classList.remove('hidden');
+                adminTab.classList.add('tab-active');
+                adminTab.classList.remove('tab-inactive');
+                userTab.classList.add('tab-inactive');
+                userTab.classList.remove('tab-active');
+            }
+        }
+</script>
+</body>
+</html>

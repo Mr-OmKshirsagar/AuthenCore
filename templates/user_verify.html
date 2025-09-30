@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AuthenCore</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+        :root {
+            --primary-color: #2563EB;--background-color: #F8F9FA;--card-background-color: #FFFFFF;--text-primary: #1F2937;--text-secondary: #6B7280;--accent-color: #E5E7EB;--error-color: #DC2626;
+            --error-background-color: #FEE2E2;
+        }
+        body {
+            font-family: 'Spline Sans', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-primary);
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[var(--background-color)]">
+<div class="relative flex size-full min-h-screen flex-col justify-between group/design-root overflow-x-hidden text-[var(--text-primary)]">
+<main class="flex-grow">
+<header class="flex items-center p-4 pb-2 justify-between">
+<button class="text-[var(--text-primary)]">
+<span class="material-symbols-outlined text-3xl">
+                    menu
+                </span>
+</button>
+<h1 class="text-xl font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-8">Dashboard</h1>
+</header>
+<div class="p-6">
+<h2 class="text-3xl font-bold leading-tight mb-8">Welcome, Admin</h2>
+<div class="space-y-6">
+<div class="flex flex-col items-center justify-start rounded-2xl bg-[var(--card-background-color)] p-6 shadow-sm border border-[var(--accent-color)]">
+<div class="w-full flex justify-center mb-4">
+<span class="material-symbols-outlined text-6xl text-[var(--primary-color)]">
+                            qr_code_scanner
+                        </span>
+</div>
+<div class="text-center">
+<h3 class="text-lg font-bold leading-tight tracking-[-0.015em] mb-1">Verify by Scan / Upload</h3>
+<p class="text-[var(--text-secondary)] text-base font-normal leading-normal mb-4">Scan or upload a certificate to verify its authenticity.</p>
+<button onclick="openScanModal()" class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-[var(--primary-color)] text-white text-base font-bold leading-normal transition-transform duration-200 ease-in-out hover:scale-105">
+  <span class="truncate">Verify with Scan</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col items-center justify-start rounded-2xl bg-[var(--card-background-color)] p-6 shadow-sm border border-[var(--accent-color)]">
+<div class="w-full flex justify-center mb-4">
+<span class="material-symbols-outlined text-6xl text-[var(--primary-color)]">
+                            edit_document
+                        </span>
+</div>
+<div class="text-center">
+<h3 class="text-lg font-bold leading-tight tracking-[-0.015em] mb-1">Verify by Manual Entry</h3>
+<p class="text-[var(--text-secondary)] text-base font-normal leading-normal mb-4">Manually enter certificate details for verification.</p>
+<button onclick="openManualModal()" class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-[var(--primary-color)] text-white text-base font-bold leading-normal transition-transform duration-200 ease-in-out hover:scale-105">
+  <span class="truncate">Verify Manually</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="sticky bottom-0">
+<div class="flex justify-around border-t border-[var(--accent-color)] bg-[var(--card-background-color)] py-2">
+<a class="flex flex-col items-center justify-end gap-1 text-[var(--primary-color)]" href="#">
+<span class="material-symbols-outlined text-2xl">
+                    dashboard
+                </span>
+<p class="text-xs font-medium tracking-[0.015em]">Dashboard</p>
+</a>
+<a class="flex flex-col items-center justify-end gap-1 text-[var(--text-secondary)]" href="#">
+<span class="material-symbols-outlined text-2xl">
+                    verified
+                </span>
+<p class="text-xs font-medium tracking-[0.015em]">Verify</p>
+</a>
+<a class="flex flex-col items-center justify-end gap-1 text-[var(--text-secondary)]" href="#">
+<span class="material-symbols-outlined text-2xl">
+                    school
+                </span>
+<p class="text-xs font-medium tracking-[0.015em]">Certificates</p>
+</a>
+<a class="flex flex-col items-center justify-end gap-1 text-[var(--text-secondary)]" href="#">
+<span class="material-symbols-outlined text-2xl">
+                    person
+                </span>
+<p class="text-xs font-medium tracking-[0.015em]">Profile</p>
+</a>
+</div>
+</footer>
+<div class="absolute inset-0 hidden flex-col justify-end bg-black/40">
+<div class="bg-[var(--card-background-color)] rounded-t-3xl shadow-2xl">
+<div class="flex justify-center pt-4">
+<div class="h-1.5 w-10 rounded-full bg-[var(--accent-color)]"></div>
+</div>
+<div class="p-6">
+<h2 class="text-2xl font-bold text-center mb-6 text-[var(--text-primary)]">Verification Result</h2>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="flex items-center justify-center rounded-full bg-[var(--error-background-color)] shrink-0 size-12">
+<span class="material-symbols-outlined text-3xl text-[var(--error-color)]">
+                                error
+                            </span>
+</div>
+<p class="text-xl font-bold leading-normal flex-1 truncate text-[var(--error-color)]">Not Verified</p>
+</div>
+<div class="space-y-4 pt-4 border-t border-[var(--accent-color)]">
+<div class="flex justify-between items-center">
+<p class="text-[var(--text-secondary)] text-sm">Certificate ID</p>
+<p class="text-[var(--text-primary)] text-sm font-medium">9876543210</p>
+</div>
+<div class="flex justify-between items-center">
+<p class="text-[var(--text-secondary)] text-sm">Reason</p>
+<p class="text-[var(--text-primary)] text-sm font-medium">Certificate Expired</p>
+</div>
+<div class="flex justify-between items-center">
+<p class="text-[var(--text-secondary)] text-sm">Expiry Date</p>
+<p class="text-[var(--text-primary)] text-sm font-medium">2022-01-01</p>
+</div>
+</div>
+<button class="flex w-full mt-4 cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-[var(--primary-color)] text-white text-base font-bold leading-normal transition-transform duration-200 ease-in-out hover:scale-105">
+<span class="truncate">Try Again</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Scan Modal -->
+<div id="scanModal" class="fixed inset-0 hidden items-center justify-center bg-black/50 z-50">
+  <div class="bg-white rounded-2xl p-6 max-w-md w-full space-y-6 shadow-xl">
+    <h2 class="text-lg font-bold text-center">Verify with Scan</h2>
+
+    <form action="{{ url_for('verify_scan') }}" method="post" enctype="multipart/form-data" class="space-y-4">
+      <!-- Upload Option -->
+      <label class="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer hover:bg-gray-50">
+        <span class="material-symbols-outlined text-4xl text-gray-400">upload_file</span>
+        <p class="text-gray-500 text-sm">Upload QR Code (PDF/PNG/JPG)</p>
+        <input type="file" name="qrcode_file" accept=".png,.jpg,.jpeg,.pdf" class="hidden" required>
+      </label>
+
+      <!-- Camera Option -->
+      <div class="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-gray-300 rounded-xl cursor-pointer hover:bg-gray-50">
+        <span class="material-symbols-outlined text-4xl text-gray-400">photo_camera</span>
+        <p class="text-gray-500 text-sm">Scan using Camera</p>
+        <!-- (We’ll integrate camera later) -->
+      </div>
+
+      <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-xl font-bold hover:opacity-90">
+        Submit
+      </button>
+    </form>
+
+    <button onclick="closeScanModal()" class="w-full text-gray-500 hover:text-gray-700">Cancel</button>
+  </div>
+</div>
+
+<!-- Manual Modal -->
+<div id="manualModal" class="fixed inset-0 hidden items-center justify-center bg-black/50 z-50">
+  <div class="bg-white rounded-2xl p-6 max-w-md w-full space-y-6 shadow-xl">
+    <h2 class="text-lg font-bold text-center">Verify Manually</h2>
+
+    <form action="{{ url_for('verify_manual') }}" method="post" class="space-y-4">
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Certificate ID</label>
+        <input type="text" name="cert_id" class="form-input w-full rounded-xl" required>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Roll Number</label>
+        <input type="text" name="roll_no" class="form-input w-full rounded-xl" required>
+      </div>
+
+      <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-xl font-bold hover:opacity-90">
+        Submit
+      </button>
+    </form>
+
+    <button onclick="closeManualModal()" class="w-full text-gray-500 hover:text-gray-700">Cancel</button>
+  </div>
+</div>
+<script>
+  function openScanModal() {
+    document.getElementById('scanModal').classList.remove('hidden');
+    document.getElementById('scanModal').classList.add('flex');
+  }
+  function closeScanModal() {
+    document.getElementById('scanModal').classList.add('hidden');
+  }
+
+  function openManualModal() {
+    document.getElementById('manualModal').classList.remove('hidden');
+    document.getElementById('manualModal').classList.add('flex');
+  }
+  function closeManualModal() {
+    document.getElementById('manualModal').classList.add('hidden');
+  }
+</script>
+
+</body></html>
